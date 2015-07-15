@@ -1,0 +1,28 @@
+{
+  "html" : {
+    "src" : "src/**/*.html",
+    "dest" : "dist/"
+  },
+
+  "style" : {
+    "src" : [
+      "src/css/**/*.css",
+      "!src/sass/**/*.css"
+    ],
+    "dest" : "dist/css"
+  },
+
+  "script" : {
+    "src" : "src/**/*.js",
+    "dest" : "dist/scripts",
+    "concat" : ["src/scripts/zepto.min.js", "src/scripts/underscore-min.js", "src/scripts/swipe.js", "src/scripts/script.js"],
+    "main" : "main.js"
+  },
+
+  "image" : {
+    "src" : "src/images/**/*",
+    "dest" : "dist/images/"
+  },
+
+  "clean" : ["dist/", "temp/", "tmp/"]
+}
