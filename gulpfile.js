@@ -10,8 +10,12 @@ var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     jshint = require('gulp-jshint'),
     uglify = require('gulp-uglify'),
+    seajs = require('gulp-seajs'),
+    transport = require('gulp-seajs-transport'),
+    //seajspackage = require('gulp-cmd-pack'),
     //imagemin = require('gulp-imagemin'),
-    pngquant = require('imagemin-pngquant'),
+    imagemin = require('gulp-image'),
+    //pngquant = require('imagemin-pngquant'),
     rename = require('gulp-rename'),
     clean = require('gulp-clean'),
     concat = require('gulp-concat'),
@@ -54,16 +58,38 @@ gulp.task('styles', function() {
     ;
 });
 
+gulp.task('sea', function(){
+  return gulp.src(config.script.pack)
+    .pipe(seajs('main'))
+    .pipe(gulp.dest(config.script.dest))
+  ;
+});
+
 // 脚本
 gulp.task('scripts', function() {
-  return gulp.src(config.script.concat)
+  return gulp.src(config.script.src) //src - 正常 | pack - 合并一个文件
     .pipe(jshint('.jshintrc'))
+    //.pipe(transport())
+    //.pipe(seajs('main'))
     .pipe(gulp.dest(config.script.dest))
-    .pipe(uglify())
-    .pipe(concat(config.script.main))
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(gulp.dest(config.script.dest))
-    .pipe(jshint.reporter('default'))
+    // .pipe(seajspackage({
+    //   mainId: 'maintest', //初始化模块的id
+    //   base: './scripts/', //base路径
+    //   alias: {
+    //       'jquery': 'core/jquery/jquery',
+    //       //'zepto': 'core/zepto/zepto',
+    //       'underscore': 'core/underscore/underscore',
+    //       'backbone': 'core/backbone/backbone'
+    //   },
+    //   ignore: ['bootstrap'] //这里的模块将不会打包进去
+    // }))
+    //.pipe(concat(config.script.packmin))
+    .pipe(uglify({
+      mangle : false
+    }))
+    //.pipe(rename({ suffix: '.min' }))
+    .pipe(gulp.dest(config.script.dest)) //dest - 正常 | packmin - 合并一个文件
+    //.pipe(jshint.reporter('default'))
     //.pipe(notify({ message: 'Scripts task complete' }))
   ;
 });
@@ -72,10 +98,10 @@ gulp.task('scripts', function() {
 gulp.task('images', function() {
   return gulp.src(config.image.src)
     // .pipe(cache(imagemin({
-    //     optimizationLevel: 5,
-    //     progressive: true,
-    //     interlaced: true,
-    //     use : [pngquant]
+    //     // optimizationLevel: 5,
+    //     // progressive: true,
+    //     // interlaced: true,
+    //     // use : [pngquant]
     // })))
     .pipe(gulp.dest(config.image.dest))
     //.pipe(notify({ message: 'Images task complete' }))
@@ -120,6 +146,7 @@ gulp.task('browser-sync', function () {
 
 
 gulp.task('default', ['clean'], function() {
+    //gulp.start('sea');
     gulp.start('html', 'styles', 'scripts', 'images');
 });
 

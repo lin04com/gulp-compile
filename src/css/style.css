@@ -1,0 +1,70 @@
+@charset "utf-8";html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;border:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}ul,ol,li{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertical-align:text-bottom}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;font-size:100%}legend{color:#000}body{font:12px/1.5 "微软雅黑",arial,tahoma}html,body{height:100%}strong,b{font-weight:bold}textarea,input{resize:none;outline:0}a{text-decoration:none}a:hover{text-decoration:underline}.fl{float:left}.fr{float:right}.cf:before,.cf:after{content:"";display:table}.cf:after{clear:both}.cf{zoom:1}
+
+html, body{ width: 100%; height: 100%}
+body{ font:normal 0.875em/1.5 '\5FAE\8F6F\96C5\9ED1','\5b8b\4f53',arial,tahoma; font-size: 100%; }
+
+html, body{ width: 100%; height: 100%}
+.wrap{ width: 100%; height: 100%; /*background: #ffe748*/}
+img{ width: 100% }
+
+.match-info{}
+.match-info .loading{ display: inline-table; width: 90%; vertical-align: middle; padding-top: 40%; text-align: center; color: #f00;}
+.match-info .time{ font-size: 1em; font-weight: bold; }
+.match-info .time, .match-info .status,.match-info a{ color:#333; }
+.match-info .address{ margin-top: 5px; font-size: 1em; font-weight: bold; }
+.match-info .address .icon-adr{ display: inline-block; width: 15px; height: 24px; margin-right: 5px; margin-bottom: -8px; background: url('../images/icon-adr.jpg') no-repeat; background-size: cover; overflow: hidden;}
+.match-info .address .adr{ /*margin-left: -30px;*/ font-size: 0.85em; text-align: left;}
+.match-info .phone,.match-info .track,.match-info .info,.match-info .courtimageurl{ width: 95%; margin:10px auto; color:#787878;}
+.match-info .icon-phone,.match-info .icon-bus{ display: inline-block; width: 23px; height: 24px; margin-right: 5px; margin-bottom: -5px; font-size: 0.85em; overflow: hidden;}
+.match-info .icon-phone{ background: url('../images/icon-phone.jpg') no-repeat; background-size: cover; }
+.match-info .icon-bus{ width: 25px; background: url('../images/icon-bus.jpg') no-repeat; background-size: cover; }
+.match-info .info{ line-height: 24px;}
+.match-info .cen{ text-align: center;}
+.match-info .map{ position: relative;}
+.map .mask{ width: 100%; position: absolute; bottom: 0; left: 0; }
+
+.appdownload{
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    padding:10px 0;
+    font-size: 0.75em;
+    color: #fff;
+    background: #000;
+    font-size: 1em;
+    vertical-align: middle;
+    background-color:rgba(0,0,0,0.7);
+    overflow: hidden;
+}
+.appdownload a{ display: block; color:#fff; text-decoration: none;}
+.appdownload .logo{
+    position: absolute;
+    left: 10px; top:10px;
+    width: 36px;
+    height: 36px;
+    display: inline-block;
+    /*text-indent: -9999em;*/
+    /*background:url('../images/logo.png') no-repeat;
+    background-size: cover;*/
+    border-radius: 5px;
+    overflow: hidden;
+}
+.appdownload .cnt{
+    padding-left: 54px;
+    font-size: 0.75em;
+    line-height: 18px;
+}
+.appdownload .btn-download{
+    position: absolute;
+    right: 10px;
+    top:10px;
+    padding:5px 10px;
+    border-radius: 5px;
+    text-align: center;
+    color:#fff;
+    font-size: 0.85em;
+    /*box-shadow: 0 3px 0px #d45d1a;*/
+    border-bottom: 3px #d45d1a solid;
+    background: #f27935;
+}

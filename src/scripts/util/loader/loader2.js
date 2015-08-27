@@ -1,0 +1,1 @@
+define(function(require,exports,module){function loader(url,data,callback){$.ajax({url:url+$.param(data),dataType:"jsonp",jsonp:"jsonCallback",success:function(data){return!data||data.ret<1?void console.log(data.msg," : ",data.result):void(callback&&"function"==typeof callback&&callback.apply(null,arguments))}})}return loader});
